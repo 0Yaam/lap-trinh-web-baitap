@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài tập 3b - Tách họ tên</title>
+</head>
+<body>
+  <script>
+    const str = '     Nguyen Thi Van Teo     ';
+
+    const temp = str.trim().replace(/\s+/g, ' '); // bỏ khoảng trắng thừa
+    const firstSpace = temp.indexOf(' ');
+    const lastSpace = temp.lastIndexOf(' ');
+
+    let ho = '', tenLot = '', ten = '';
+
+    if (firstSpace === -1) {
+      console.log('Họ tên không hợp lệ!');
+    } else {
+      ho = temp.slice(0, firstSpace);
+      tenLot = temp.slice(firstSpace + 1, lastSpace);
+      ten = temp.slice(lastSpace + 1);
+      console.log(`Họ: ${ho}`);
+      console.log(`Tên lót: ${tenLot}`);
+      console.log(`Tên: ${ten}`);
+    }
+
+    // Test thử vài trường hợp khác
+    const tests = [
+      'Le Teo',
+      '  Nguyen     Van      Teo  ',
+      'Tran  ',
+      ''
+    ];
+    tests.forEach(name => {
+      const clean = name.trim().replace(/\s+/g, ' ');
+      if (clean.split(' ').length < 2) {
+        console.log(`"${name}" => Không hợp lệ`);
+      } else {
+        const fs = clean.indexOf(' ');
+        const ls = clean.lastIndexOf(' ');
+        console.log(`"${name}" => Họ: ${clean.slice(0, fs)}, Tên lót: ${clean.slice(fs+1, ls)}, Tên: ${clean.slice(ls+1)}`);
+      }
+    });
+  </script>
+</body>
+</html>

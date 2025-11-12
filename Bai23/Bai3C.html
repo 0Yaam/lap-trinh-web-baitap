@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài tập 3c - Ẩn email</title>
+</head>
+<body>
+  <script>
+    function hideEmail(email) {
+      if (!email.includes('@')) return 'Email không hợp lệ';
+      const parts = email.split('@');
+      const username = parts[0];
+      const domain = parts[1];
+      const visibleLength = Math.ceil(username.length / 2);
+      const hidden = username.slice(0, visibleLength);
+      return `${hidden}...@${domain}`;
+    }
+
+    console.log(hideEmail('robin_singh@example.com')); // robin...@example.com
+    console.log(hideEmail('teonv@gmail.com'));         // teon...@gmail.com
+  </script>
+</body>
+</html>

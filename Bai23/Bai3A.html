@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài tập 3a - String và phạm vi</title>
+</head>
+<body>
+  <script>
+    // --- Phạm vi (Scope) ---
+    console.log("=== Phạm vi ===");
+    const a = 6;
+    {
+      const a = 5;
+      console.log(a); // 5 (biến cục bộ)
+    }
+    console.log(a); // 6 (biến toàn cục)
+
+    {
+      const b = 5;
+      console.log(b); // 5
+    }
+    // console.log(b); // lỗi: b không tồn tại bên ngoài
+
+    c = 7; // biến toàn cục vì không dùng let/const
+    {
+      console.log(c); // 7
+      d = 8;
+    }
+    console.log(d); // 8
+
+    // --- Kiểu dữ liệu string ---
+    console.log("=== String ===");
+    const str1 = "Chao bac Teo";
+    const str2 = 'Chao cu Ti';
+    console.log(str1);
+    console.log(str2);
+
+    const str3 = "Chao bac's Teo";
+    const str4 = 'Chao "cu" Ti';
+    console.log(str3);
+    console.log(str4);
+
+    const str5 = 'Chao bac\'s Teo';
+    console.log(str5);
+
+    const str = 'hello';
+    console.log(str.length);
+    console.log(str.toUpperCase());
+    console.log(str.toLowerCase());
+    console.log(str.charAt(1));
+    console.log(str.indexOf('o'));
+    console.log(str.lastIndexOf('l'));
+    console.log(str.includes('e'));
+    console.log(str.startsWith('h'));
+    console.log(str.endsWith('o'));
+
+    console.log(str.concat(' bac Teo'));
+    console.log(str + ' bac Teo');
+
+    const s2 = '   nguyen van teo   ';
+    console.log(s2.trim());
+    console.log('hi'.repeat(3));
+
+    const s3 = 'Nguyen Thi Van Teo';
+    console.log(s3.slice(0, 6));
+
+    const s4 = 'teonv@gmail.com';
+    const result = s4.split('@');
+    console.log(result[0]);
+    console.log(result[1]);
+
+    // --- Template string ---
+    const ho = 'Nguyen', ten = 'Teo';
+    console.log(`Ho ten la: ${ho} ${ten}`);
+
+    const article = {
+      title: 'Xuat template',
+      body: 'Su dung template de xuat truc tiep len trang web'
+    };
+    document.body.innerHTML += `
+      <section>
+        <h2>${article.title}</h2>
+        <p>${article.body}</p>
+      </section>
+    `;
+  </script>
+</body>
+</html>
